@@ -1,0 +1,38 @@
+---
+# AWS tasks
+
+#
+# -----------------------------------------------------------------------------
+# Retrieve Info
+# -----------------------------------------------------------------------------
+#
+#- name: Retrieve metatdata facts
+#  ec2_metadata_facts:
+
+# Gather facts about all instances in AZ eu-west-2a
+- name: Get facts in London (eu-west-2a)
+  ec2_instance_facts:
+    aws_access_key: {{ envase_aws_accesskey }}
+    aws_secret_key: {{ envase_aws_secretkey }}
+    filters:
+      availability-zone: {{ envase_aws_az }}
+  register: envase_facts
+
+
+#- name: Gather EC2 instance metadata
+#    action: ec2_facts
+
+#- name: Obtain EC2 tags for this instance
+#  local_action:
+#    module: ec2_tag
+#    region: "{{ ansible_ec2_placement_region }}"
+#    resource: "{{ ansible_ec2_instance_id }}"
+#    state: list
+#  register: ec2_tags
+
+#- name: Set hostname to match EC2 Name
+#  hostname: name={{ ec2_tags.tags.Name }}
+- name: Output instance info
+  debug:
+    msg: "EC2 Instance ID: {{ envase_facts.ec2_instance_id }}"
+  #when: ec2_.exists == true

@@ -1,0 +1,31 @@
+---
+# defaults file for ansible-envase
+
+# Cloud Provider
+envase_cloud_provider: aws
+
+# OCP Version to deploy
+envase_openshift_version: 3.6
+
+#
+# -----------------------------------------------------------------------------
+# AWS Attributes
+# -----------------------------------------------------------------------------
+#
+
+# AWS Access Key
+envase_aws_accesskey: AAAABBBBBCCCCCDDDDD
+
+# AWS Secret Key
+envase_aws_secretkey: qwertyuiop1234567890
+
+# VPC ID
+envase_aws_vpc: vpc-a5dd2acc
+
+# AZ to deploy to
+envase_aws_az: eu-west-2a
+
+# EC2 Instance Flavour
+envase_aws_flavour: t2.large
+
+# EC2
